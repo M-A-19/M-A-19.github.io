@@ -94,6 +94,17 @@ position:absolute;
 	width:80px;
 }
 
+
+.btn-qunit {
+	margin-right:31px;
+	background-color:#9c3493;
+	color:#fff;
+}
+.btn-qunit img {
+	margin-right:6px;
+}
+
+
 .bs-example {
     position: relative;
     padding: 45px 15px 15px;
