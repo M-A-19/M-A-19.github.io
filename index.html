@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Halftone.js</title>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/jumbotron-narrow.css" />
+<link rel='stylesheet' href='css/spectrum.css' />
+
+	 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	 <script src="src/jquery.halftone.min.js"></script>
+	 <script src="src/examples.js"></script>
+	 <script src='src/lib/spectrum.js'></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="/about.html">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Halftone.js</h3>
+      </div>
+
+      <div class="jumbotron">
+        
+        
+      	
+		<canvas id="main-canvas" width="580" height="443">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<div class="canvas-overlay" id="main-overlay">
+			<h1>Halftone plugin for jQuery</h1>
+			<p><img id="base" src="images/righting_wrongs_b.jpg"><p>
+			<p><a class="btn btn-lg btn-success" href="#" id="main-button" role="button">Bring it on.</a></p>
+		</div>
+      </div>
+      
+
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h4>Wow! How cool is that?</h4>
+          <p>We know what you're thinking, "I've always wanted to create halftones with jQuery!" Well stop thinking, because now you can.</p>
+
+          <h4>Idiomatic jQuery integration</h4>
+          <p>The halftone() function returns a valid jQuery object and is completely chainable.</p>
+
+          <h4>Easy to install, Easy to use</h4>
+          <p>just include jquery-halftone in your page after a recent (1.7+) version of the jQuery library and you're ready to go .</p>
+        </div>
+
+      </div>
+      
+            <div class="row social">
+            	<div class="col-lg-3"></div>
+            	<div class="col-lg-6">
+                        <a href="https://github.com/M-A-19/halftone-js/" target="_blank" class="btn btn-default btn-md"><i class="glyphicon glyphicon-random"></i> Fork me on Github</a>
+                        <a href="https://github.com/M-A-19/halftone-js/archive/master.zip" target="_blank" class="btn btn-success btn-md"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
+    			</div>
+    			<div class="col-lg-3"></div>
+    </div>
+      
+      <div class="page-header">
+        <h1>Configuration</h1>
+       </div> 
+      <div class="row marketing">
+        <div class="col-lg-4"> 
+        
+        <div class="form-inline">                
+      
+      <div class="form-group" >
+    		<label for="demo-sample">Sample size : </label>
+			<input id="demo-sample" type="text" value="5" class="form-control" />
+		
+	  </div>
+		
+		 </div>
+		<div class="input-group">
+ 		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Luminosity : <span class="selection">Standard</span>
+    	<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+          <li><a href="#">Standard</a></li>
+          <li><a href="#">Mean</a></li>
+          <li><a href="#">PerceivedA</a></li>
+          <li><a href="#">PerceivedB</a></li>
+        </ul>
+        </div>
+       <label for="demo-background">Background colour : </label>
+       <div class="input-group">
+    	<input type='color' name='color2' id="demo-background" value='#000000' />
+
+		</div> 
+		
+		<label for="demo-foreground">Foreground colour : </label>
+       <div class="input-group">
+    	<input type='color' name='color1'  value="#ffffff" id="demo-foreground" />
+
+		</div> 
+        
+        
+     <div class="panel panel-default">
+     
+     <div class="panel-body">
+  
+  	    <button type="button" id="demo-button1" class="btn btn-primary">Render</button>
+    	<button type="button" id="demo-button2" class="btn btn-default">Reset</button>
+    	
+    	</div>
+      
+ 		</div>
+  
+	
+        </div>
+        <div class="col-lg-8">
+        <canvas id="demo-canvas1" width="350" height="250" class="thumbnail">Unsupported HTML5 canvas tag.</canvas>
+        </div>
+    </div>
+    
+    <div>
+               
+                    <p>The Halftone method can be called on any canvas element with the following syntax:</p>
+                    <pre class="well">$('.canvas-element').halftone({ [configuration] });</pre>
+                    <h3>Options</h3>
+                    <p>
+                        You may set options with each call to the halftone method, or globally, using the halftone.defaults object:
+                    </p>
+                    <pre class="well">$.fn.halftone.defaults.background = "#adadad" ;</pre>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;">Name</th>
+                                <th style="width: 50px;">Type</th>
+                                <th style="width: 100px;">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>background</td>
+                                <td>string</td>
+                                <td>#000000</td>
+                                <td>Sets the background colour for the halftone</td>
+                            </tr>
+                            <tr>
+                                <td>color</td>
+                                <td>string</td>
+                                <td>#ffffff</td>
+                                <td>Sets the foreground colour for the halftone</td>
+                            </tr>
+                            <tr>
+                                <td>sample</td>
+                                <td>string</td>
+                                <td>8</td>
+                                <td>size of sample unit used to calculate the halftone</td>
+                            </tr>
+                            <tr>
+                                <td>luminosity</td>
+                                <td>string</td>
+                                <td>Standard</td>
+                                <td>Sets the algorithm to use to calculate the luminosity in the sample image. Options are "Standard", "Mean", "PerceivedA" and "PerceivedB".</td>
+                            </tr>
+                            <tr>
+                                <td>topleft</td>
+                                <td>Array</td>
+                                <td>[0,0]</td>
+                                <td>top left corner of sample area position, default is 0,0 </td>
+                            </tr>
+                            <tr>
+                                <td>bottomright</td>
+                                <td>Array</td>
+                                <td>[image width,image height]</td>
+                                <td>bottom right corner of sample area position, if left unset, the bottom right corner of the canvas itself will be used. </td>
+                            </tr>
+                            <tr>
+                                <td>zoomfactor</td>
+                                <td>string</td>
+                                <td>Null</td>
+                                <td>0 to expand the halftone image to fill all available space. Other values currently unsupported.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="bs-docs-section">
+  <h1 id="wells" class="page-header">Example<a class="anchorjs-link" href="#wells"><span class="anchorjs-icon"></span></a></h1>
+
+  <p>Set up a Canvas element, draw a gradient in it and convert it to a halftone</p>
+  <div class="bs-example" data-example-id="default-well">
+ 
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas-test"</span><span class="na"> width=</span><span class="s">"200"</span><span class="na"> height</span><span class="s">"300"</span> <span class="nt">&gt;</span>
+ Unsupported HTML5 canvas tag.
+<span class="nt">&lt;/canvas&gt;</span></code></pre></div>
+  </div>
+                      <p>Javascript:</p>
+                    <pre class="well">
+//write a gradient into the canvas so we have some image data to process...
+var c=document.getElementById("canvas-test");
+var ctx=c.getContext("2d");
+var grad=ctx.createLinearGradient(0,0,170,0);
+grad.addColorStop(0,"#000");
+grad.addColorStop(1,"#fff");
+ctx.fillStyle=grad;
+ctx.fillRect(0,0,300,200);
+
+//Do the halftone
+
+$('#canvas-test').halftone({
+                     'sample' : 7,
+                     'background' : '#000000'
+                      });</pre>
+  </div>
+  
+
+  
+
+      <footer class="footer">
+        <p>&copy; Halftone.js 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <!--   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
