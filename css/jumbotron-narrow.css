@@ -47,7 +47,7 @@ body {
   background-color:#adadad;
  display: block;
 position:relative;
-  min-height: 564px;
+  min-height: 443px;
   border-bottom: 1px solid #e5e5e5;
 overflow:hidden;
 }
@@ -86,12 +86,15 @@ overflow:hidden;
 /* local edits by Pez*/
 
 #main-canvas {background:#adadad;
-position:absolute;
+  position:absolute;
   left: 50%;	
   margin-left: -290px;}
 
 .canvas-overlay {z-index: 10;
-    position: relative}
+    position: relative;
+	margin-left: -5px;
+    
+}
     
 #demo-sample {
 	width:80px;
