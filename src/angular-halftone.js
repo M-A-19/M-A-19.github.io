@@ -182,7 +182,7 @@ app.directive('ngHalftone', function($rootScope) {
               
               
 		  //This is the End.
-		  var End = imgData.data.length;
+		  var End = imgData.data.length-4;
               
 		  //for each pixel dataset
               for(var i=0;i<End;i+=4){
@@ -209,20 +209,20 @@ app.directive('ngHalftone', function($rootScope) {
               
               		}
               		u++;
-              
+              		if (u == cols)u = 0;
+
               	}
               
               
               	//row terminators 
-              	if (i !=0 && i % (imgData.width*4) == 0 ) {
+              	if (i !=0 && i % ((imgData.width)*4) == 0 ) {
               
               		if(pr !=0 && pr % sample == 0){
+
               			hold = arrr.map(function (x, v) { return {r:0,g:0,b:0,a:0} });
               			t++;
               		}
               		pr++;
-              		u = 0;
-              
               	}
               
               }
