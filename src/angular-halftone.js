@@ -130,47 +130,50 @@ app.directive('ngHalftone', function($rootScope) {
               var t = 0;
               var pr = 0;
               
-              //for each pixel dataset
               
-              for(var i=0;i<imgData.data.length;i+=4){
+		  //This is the End.
+		  var End = imgData.data.length;
               
-              try{
+		  //for each pixel dataset
+              for(var i=0;i<End;i+=4){
               
-              hold[u].r += imgData.data[i];
-              hold[u].g += imgData.data[i+1];
-              hold[u].b += imgData.data[i+2];
-              hold[u].a += imgData.data[i+3];
+              	try{
               
-              } catch (e){
-              alert(e.message);
-              }
+              		hold[u].r += imgData.data[i];
+              		hold[u].g += imgData.data[i+1];
+              		hold[u].b += imgData.data[i+2];
+              		hold[u].a += imgData.data[i+3];
               
-              
-              //for each unit width
-              if(i != 0 && i % (sample*4) == 0){
-              
-              
-              if((pr+1) % sample == 0){
-              
-              out[t][u] = Luminance( hold[u].r/potential, hold[u].g/potential, hold[u].b/potential);
-              
-              }
-              u++;
-              
-              }
+              	} catch (e){
+              	alert(e.message);
+              	}
               
               
-              //row terminators 
-              if (i !=0 && i % (imgData.width*4) == 0 ) {
+              	//for each unit width
+             	 if(i != 0 && i % (sample*4) == 0){
               
-              if((pr+1) % sample == 0){
-              hold = arrr.map(function (x, v) { return {r:0,g:0,b:0,a:0} });
-              t++;
-              }
-              pr++;
-              u = 0;
               
-              }
+              		if((pr+1) % sample == 0){
+              
+              			out[t][u] = Luminance( hold[u].r/potential, hold[u].g/potential, hold[u].b/potential);
+              
+              		}
+              		u++;
+              
+              	}
+              
+              
+              	//row terminators 
+              	if (i !=0 && i % (imgData.width*4) == 0 ) {
+              
+              		if(pr !=0 && pr % sample == 0){
+              			hold = arrr.map(function (x, v) { return {r:0,g:0,b:0,a:0} });
+              			t++;
+              		}
+              		pr++;
+              		u = 0;
+              
+              	}
               
               }
 
