@@ -16,6 +16,7 @@ app.directive('ngHalftone', function($rootScope) {
         var ctx = iElement[0].getContext('2d');
         var eHandle = iElement[0];
         var id = iAttrs.id;
+        var startblank = ("true" == iAttrs.startblank);
         var img = new Image();
 		img.src = iAttrs.image;
               img.onload = function () {
@@ -29,6 +30,17 @@ app.directive('ngHalftone', function($rootScope) {
               PerceivedB:function(r,g,b){return Math.sqrt( Math.pow(0.241*r,2) + Math.pow(0.691*g,2) + Math.pow(0.068*b,2) )}
         }
         var Luminance = lMethods.Standard;
+	  //defaults
+	  var defaults = {
+		colour1: "#000000",
+		colour2: "#ffffff",
+		luminosity: "Standard",
+		topleft: null,
+		bottomright: null,
+		zoomfactor: null,
+		sample: 8
+	};
+
               
         /**
          * Event listener for render event
@@ -58,29 +70,67 @@ app.directive('ngHalftone', function($rootScope) {
         $rootScope.$on('reset', onReset);
               
         function reset(){
-              eHandle.width = img.width;
-              eHandle.height = img.height;
-              ctx.drawImage(img,0,0,img.width,img.height);
+              if(img.width>eHandle.width) eHandle.width = img.width;
+              if (img.width>eHandle.height) eHandle.height = img.height;
+              if(true != startblank)ctx.drawImage(img,0,0,img.width,img.height);
         }
 		
-		function halftone(settings){
+		function halftone(options){
                 //make sure its a canvas
                 if("CANVAS" != eHandle.tagName) throw new Error("This directive can only be applied to canvas elements!");
+
+
+		    var options = options || {};
+
+	//clone from defaults
+	var settings = {};
+       for (var a in defaults) {
+        if (defaults.hasOwnProperty(a)) {
+         settings[a] = defaults[a];
+        }
+	}
+
+	//override for this config
+       for (var a in options){
+
+        if (options.hasOwnProperty(a)) {
+         settings[a] = options[a];
+        }
+	}
+		    
               
                 //set colours
                 eHandle.style.backgroundColor = settings.colour2;
                 ctx.fillStyle=settings.colour1;
               
                 //get image data
-                var i = ctx.getImageData(0,0,eHandle.width,eHandle.height);
+		var canvastmp = document.createElement('canvas');
+		canvastmp.width = img.width;
+		canvastmp.height = img.height;
+		var ctxtmp = canvastmp.getContext('2d');
+		ctxtmp.drawImage(img,0,0,img.width,img.height);
+
+                var i = ctxtmp.getImageData(0,0,img.width,img.height);
               
                 //set output dimensions
                 var originx = 0, originy = 0;
+		if(null !== settings.topleft){
+			var originx = settings.topleft[0];
+			var originy = settings.topleft[1];
+		}
                 var endx = eHandle.width, endy = eHandle.height;
+		if(null !== settings.bottomright){
+			var endx = settings.bottomright[0];
+			var endy = settings.bottomright[1];
+		}
+
+
+
               
                 var mtx = matrixFromimgData(i,settings.sample)
-              
-              alert("do the thing!");
+
+		if(0 == settings.zoomfactor)settings.sample = Math.ceil(eHandle.width/mtx[0].length);
+
               
               draw(ctx,endx,endy,settings.sample,mtx);
 

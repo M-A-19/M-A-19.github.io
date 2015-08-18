@@ -55,13 +55,17 @@
         <h3 class="text-muted">Halftone.js</h3>
       </div>
 
-	<div>
+<div class="jumbotron">
         
         
       	
-		<div >
-			<h1>Halftone Angular directive</h1>
+		<canvas ng-halftone data-image="images/righting_wrongs_b.jpg" data-startblank="true" id="main-canvas" width="580" height="443">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<div class="canvas-overlay" id="main-overlay" ng-show="goOverlay">
 
+			<h1>Halftone Angular directive</h1>
+				<img id="base" src="images/righting_wrongs_b.jpg">
+			<p><a class="btn btn-lg btn-success" id="main-button" ng-href='#here' ng-click="headerhalftone('main-canvas')" role="button">Make it so.</a></p>
 		</div>
       </div>
 
