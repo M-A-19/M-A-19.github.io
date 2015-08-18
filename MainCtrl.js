@@ -23,7 +23,6 @@
       };
       
 	$scope.headerhalftone = function(canvasID) {
-	  alert('do demo');
 			var options = {
         	'sample' : 3,
         	'bottomright' : [314,227],
@@ -33,7 +32,7 @@
         	'colour2' : "#adadad",
 		'id' : canvasID
         };
-$scope.goOverlay=false;
+	 $scope.goOverlay=false;
 
         $scope.$broadcast('render', options);
       };
