@@ -223,6 +223,7 @@ app.directive('ngHalftone', function($rootScope) {
               			t++;
               		}
               		pr++;
+				u=0;
               	}
               
               }
