@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="Ape">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,123 +12,120 @@
     <title>Halftone.js</title>
 
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="css/jumbotron-narrow.css" /> 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="css/jumbotron-narrow.css"/>
 
- <link rel="stylesheet" href="libs/angular/angular-color-picker.css"> 
+    <link rel="stylesheet" href="libs/angular/angular-color-picker.css">
 
 
-	  <script data-require="angular.js@*" data-semver="1.3.0-beta.5" 
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5"
             src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
 
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-
-
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl">
 
-    <div class="container">
-      <div class="header clearfix">
+<div class="container">
+    <div class="header clearfix">
         <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="/index.html">jQuery</a></li>
-            <li role="presentation" class="active"><a href="#">Angular</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/index.html">jQuery</a></li>
+                <li role="presentation" class="active"><a href="#">Angular</a></li>
+                <li role="presentation"><a href="#">Contact</a></li>
+            </ul>
         </nav>
         <h3 class="text-muted">Halftone.js</h3>
-      </div>
-
-<div class="jumbotron">
-        
-        
-      	
-		<canvas ng-halftone data-image="images/righting_wrongs_b.jpg" data-startblank="true" id="main-canvas" width="580" height="443">
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<div class="canvas-overlay" id="main-overlay" ng-show="goOverlay">
-
-			<h1>Halftone Angular directive</h1>
-				<img id="base" src="images/righting_wrongs_b.jpg">
-			<p><a class="btn btn-lg btn-success" id="main-button" ng-href='#here' ng-click="headerhalftone('main-canvas')" role="button">Make it so.</a></p>
-		</div>
-      </div>
-
-      
-
-
-      <div class="row marketing">
-        <div class="col-lg-12">
-    
-    <form name="halftoneDemo" ng-submit="render('targetCanvas')">
-			Sample Size: <input type="text" ng-model="data.sample" /><br />
-			Luminosity: <select ng-model="data.luminosity" >
-						  <option value="Standard">Standard</option>
-						  <option value="Mean">Mean</option>
-						  <option value="PerceivedA">PerceivedA</option>
-						  <option value="PerceivedB">PerceivedB</option>
-						</select><br />
-			Foreground Colour: 
-			<input type="text" ng-model="data.colour1" ng-click="show1 = !show1">
-			<color-picker ng-model="data.colour1" ng-show="show1">
-			</color-picker><br />
-			
-			Background Colour: 
-			<input type="text" ng-model="data.colour2"  ng-click="show2 = !show2">
-			<color-picker ng-model="data.colour2" ng-show="show2">
-			</color-picker><br />
-			<input type="button" ng-click="reset('targetCanvas')" value="Reset" />
-        <input type="submit" value="Render">
-    </form>
-    <pre>form = {{data | json}}</pre>
-    <canvas ng-halftone data-image="images/righting_wrongs_b.jpg" id="targetCanvas"></canvas>
-    
-
-      </div>
-      
-            <div class="row social">
-            	<div class="col-lg-2"></div>
-            	<div class="col-lg-8">
-                        <a href="https://github.com/M-A-19/halftone-js/" target="_blank" class="btn btn-default btn-md"><i class="glyphicon glyphicon-random"></i> Fork me on Github</a>
-                        <a href="https://github.com/M-A-19/halftone-js/archive/master.zip" target="_blank" class="btn btn-success btn-md"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
-                        <a href="halftone.html" class="btn btn-qunit"><i><img src="images/qunit-icon.png" style="display:inline;"><i>Run our Test Suite</a>
-    			</div>
-    			<div class="col-lg-2"></div>
     </div>
-      
-      
-    
 
-  
+    <div class="jumbotron">
 
-      <footer class="footer">
 
-    <script src="libs/angular/angular-color-picker.js"></script>
-    <script src="MainCtrl.js"></script>
-    <script src="src/angular-halftone.js"></script>
+        <canvas ng-halftone data-image="images/righting_wrongs_b.jpg" data-startblank="true" id="main-canvas"
+                width="580" height="443">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <div class="canvas-overlay" id="main-overlay" ng-show="goOverlay">
 
-        <p>&copy; Halftone.js 2015</p>
-      </footer>
+            <h1>Halftone Angular directive</h1>
+            <img id="base" src="images/righting_wrongs_b.jpg">
+            <p><a class="btn btn-lg btn-success" id="main-button" ng-href='#here'
+                  ng-click="headerhalftone('main-canvas')" role="button">Make it so.</a></p>
+        </div>
+    </div>
+
+    <div class="row social">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <a href="https://github.com/M-A-19/halftone-js/" target="_blank" class="btn btn-default btn-md"><i
+                    class="glyphicon glyphicon-random"></i> Fork me on Github</a>
+            <a href="https://github.com/M-A-19/halftone-js/archive/master.zip" target="_blank"
+               class="btn btn-success btn-md"><i class="glyphicon glyphicon-download-alt"></i> Download</a>
+            <a href="halftone.html" class="btn btn-qunit"><i><img src="images/qunit-icon.png"
+                                                                  style="display:inline;"><i>Run our Test Suite</a>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+
+    <div class="row marketing">
+        <div class="col-lg-12">
+
+            <form name="halftoneDemo" ng-submit="render('targetCanvas')">
+                Sample Size: <input type="text" ng-model="data.sample"/><br/>
+                Luminosity: <select ng-model="data.luminosity">
+                <option value="Standard">Standard</option>
+                <option value="Mean">Mean</option>
+                <option value="PerceivedA">PerceivedA</option>
+                <option value="PerceivedB">PerceivedB</option>
+            </select><br/>
+                Foreground Colour:
+                <input type="text" ng-model="data.colour1" ng-click="show1 = !show1">
+                <color-picker ng-model="data.colour1" ng-show="show1">
+                </color-picker>
+                <br/>
+
+                Background Colour:
+                <input type="text" ng-model="data.colour2" ng-click="show2 = !show2">
+                <color-picker ng-model="data.colour2" ng-show="show2">
+                </color-picker>
+                <br/>
+                <input type="button" ng-click="reset('targetCanvas')" value="Reset"/>
+                <input type="submit" value="Render">
+            </form>
+            <pre>form = {{data | json}}</pre>
+            <canvas ng-halftone data-image="images/righting_wrongs_b.jpg" id="targetCanvas"></canvas>
+
+
+        </div>
+
+
+        <footer class="footer">
+
+            <script src="libs/angular/angular-color-picker.js"></script>
+            <script src="MainCtrl.js"></script>
+            <script src="src/angular-halftone.js"></script>
+
+            <p>&copy; Halftone.js 2015</p>
+        </footer>
 
     </div> <!-- /container -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   <!--   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <!--   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
-  </body>
+</body>
 </html>
