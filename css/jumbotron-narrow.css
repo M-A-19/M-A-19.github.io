@@ -109,6 +109,10 @@ overflow:hidden;
 	margin-right:6px;
 }
 
+.btn-gh i {
+	margin-right: 0.5em;
+}
+
 
 .bs-example {
     position: relative;
